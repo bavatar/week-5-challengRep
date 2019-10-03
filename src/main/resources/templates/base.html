@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Base Page of Fragments</title>
+    <div th:fragment="header">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!--Bootstrap CSS-->
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous" />
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Belgrano|Flamenco&display=swap" rel="stylesheet">
+        <!--        @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');-->
+
+        <!--My CSS-->
+        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    </div>
+</head>
+<body>
+<div th:fragment="navbar" style="background-color: slategray">
+    <ul class="nav">
+        <li class="nav-item" id="firstItem">
+            <a class="nav-link active" style="color: whitesmoke" href="/">Home</a>
+        </li>
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" href="/aboutbootcamp">About the Bootcamp</a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" href="/aboutauthor">Blog Author</a>-->
+        <!--        </li>-->
+    </ul>
+</div>
+<div class="container" th:fragment="footnote">
+    <footer>
+        <center>
+            <div class="footer-main-div" style="alignment: center">
+                <p style="color:greenyellow; ">&copy; Copyright 2019 John Anderjaska.</p>
+            </div>
+        </center>
+    </footer>
+    </footer>
+</div>
+
+</body>
+</html>

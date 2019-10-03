@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Show Flight Details</a><br />
+Job Title: <span th:text="${job.title}" ></span>
+Description: <p th:text="${job.description}" ></p>
+Posted Date: <span th:text="${#dates.format(job.postedDate, 'dd-MMM-yyyy')}"></span>
+Author: <span th:text="${job.author}" ></span>
+Phone: <span th:text="${job.phone}" ></span>
+<a th:href="@{/delete/{id}(id=${job.id})}">Delete this job</a>
+</body>
+</html>

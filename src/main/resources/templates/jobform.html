@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Job Form</h1>
+<form th:action="@{/processjob}" th:object="${job}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{postedDate}" />
+    Title: <input type="text" placeholder="Title" th:field="*{title}" />
+    Description: <textarea rows="3" placeholder="Description" th:field="*{description}" />
+    Posted Date: <input type="date" name="postedDate" />
+    Author: <input type="text" placeholder="Author" th:field="*{author}" />
+    Phone: <input type="text" placeholder="Phone" th:field="*{phone}" />
+
+    <input type="submit" onclick="confirmation()" value="Submit">
+</form>
+
+</body>
+</html>
