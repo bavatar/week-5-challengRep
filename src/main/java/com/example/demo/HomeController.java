@@ -41,9 +41,10 @@ public class HomeController {
     public String processForm(@ModelAttribute Job job, @RequestParam(name = "date")
             String date){
         String pattern = "yyyy-MM-dd";
-        System.out.println(date);
+        //System.out.println(date);
+        String[] output = date.split(",");
         try {
-            String formattedDate = date.substring(1,date.length());
+            String formattedDate = output[1];  //date.substring(1,date.length());
             System.out.println(formattedDate);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             Date realDate = simpleDateFormat.parse(formattedDate);

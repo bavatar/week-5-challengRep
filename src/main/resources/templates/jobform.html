@@ -3,20 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <div th:insert="base::header"></div>
 </head>
-<body>
-<h1>Job Form</h1>
+<body style="background-color: darkgreen">
+<!-- Navigation bar-->
+<div th:insert="base :: navbar"></div>
+
+<br>
+<div class="container" style="background-color: lightgoldenrodyellow">
+    <center><h3>Job Form<</h3></center>
+</div>
+
+<div class="container" style="background-color: azure">
+    <br>
 <form th:action="@{/processjob}" th:object="${job}" method="post">
     <input type="hidden" th:field="*{id}" />
     <input type="hidden" th:field="*{postedDate}" />
-    Title: <input type="text" placeholder="Title" th:field="*{title}" />
-    Description: <textarea rows="3" placeholder="Description" th:field="*{description}" />
-    Posted Date: <input type="date" name="postedDate" />
-    Author: <input type="text" placeholder="Author" th:field="*{author}" />
-    Phone: <input type="text" placeholder="Phone" th:field="*{phone}" />
+    <input type="text" placeholder="Title" th:field="*{title}" />
+    <textarea rows="3" placeholder="Description" th:field="*{description}" />
+    <input type="date" name="postedDate" />
+    <input type="text" placeholder="Author" th:field="*{author}" />
+    <input type="text" placeholder="Phone" th:field="*{phone}" />
 
     <input type="submit" onclick="confirmation()" value="Submit">
 </form>
+</div>
 
+<br>
+<div class="container" th:fragment="footnote">
+    <footer>
+        <center>
+            <div class="footer-main-div" style="alignment: center">
+                <p style="color:greenyellow; ">&copy; Copyright 2019 John Anderjaska.</p>
+            </div>
+        </center>
+    </footer>
+</div>
+
+<!--Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
