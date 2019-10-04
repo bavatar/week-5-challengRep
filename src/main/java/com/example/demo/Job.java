@@ -35,16 +35,15 @@ public class Job {
     @Size(min=4)
     private String phone;
 
-    public Job() {
-    }
-
-    public Job(@NotNull @Size(min = 4) String title, @NotNull @Size(min = 6) String description,
-               Date postedDate, @NotNull @Size(min = 4) String author, @NotNull @Size(min = 4) String phone) {
+    public Job(@NotNull @Size(min = 4) String title, @NotNull @Size(min = 6) String description, Date postedDate, @NotNull @Size(min = 4) String author, @NotNull @Size(min = 4) String phone) {
         this.title = title;
         this.description = description;
         this.postedDate = postedDate;
         this.author = author;
         this.phone = phone;
+    }
+
+    public Job() {
     }
 
     public long getId() {

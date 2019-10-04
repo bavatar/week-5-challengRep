@@ -27,13 +27,8 @@ public class HomeController {
     }
 
     @PostMapping("/processsearch")
-    public String searchResult(Model model, @RequestParam(name="SearchSelector") String optionvalue,
-                               @RequestParam(name="search") String search) {
-        //        ArrayList<Flight> flightsArrayL = new ArrayList<>();
-        //        flightsArrayL = flightRepository.findAll();
-        ArrayList<Job> jobsArray = jobRepository.findJobByTitleContainingIgnoreCase(search);
-        model.addAttribute("jobs", jobsArray);
-        model.addAttribute("flights", jobsArray);
+    public String searchResult(Model model, @RequestParam(name="search") String search) {
+        model.addAttribute("jobs", jobRepository.findJobByTitleContainingIgnoreCase(search));
         return  "searchlist";
     }
 
@@ -41,10 +36,11 @@ public class HomeController {
     public String processForm(@ModelAttribute Job job, @RequestParam(name = "date")
             String date){
         String pattern = "yyyy-MM-dd";
-        //System.out.println(date);
+//        System.out.println("processForm: Input Date: " + date);
         String[] output = date.split(",");
+//        System.out.println("processForm: length of Array: " + output.length);
         try {
-            String formattedDate = output[1];  //date.substring(1,date.length());
+            String formattedDate = output[output.length - 1];  //date.substring(1,date.length());
             System.out.println(formattedDate);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             Date realDate = simpleDateFormat.parse(formattedDate);

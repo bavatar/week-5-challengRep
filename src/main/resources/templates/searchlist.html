@@ -11,7 +11,7 @@
 <br><br><br>
 
 <div class="container" style="background-color: lightgoldenrodyellow">
-    <center><h3>Search Resultse</h3></center>
+    <center><h3>Search Results</h3></center>
 </div>
 
 <div class="container" style="background-color: azure">
@@ -19,7 +19,7 @@
         <thead>
         <tr >
             <th colspan="1">Title</th>
-            <th style="text-align:center" colspan="1" >description</th>
+            <th colspan="1" >description</th>
             <th colspan="1">Dest Airport</th>
             <th colspan="1">Date</th>
             <th colspan="1">Author</th>
@@ -27,7 +27,7 @@
             <th colspan="1" class="text-center">Actions</th>
         </tr>
         <thead>
-    <div th:each="flight : ${flights}">
+    <div th:each="job : ${jobs}">
         <tr>
             <td><p th:text="${job.title}"></p></td>
             <td><p th:text="${job.description}"></p></td>
@@ -36,14 +36,15 @@
             <td><p th:text="${job.phone}"></p></td>
             <!--            Added 10-3-19 7pm-->
             <td>
-                <a th:href="@{/update/{id}(id=${flight.id})}">Update</a>
-                <a th:href="@{/detail/{id}(id=${flight.id})}">Details</a>
-                <a th:href="@{/delete/{id}(id=${flight.id})}">Delete</a>
+                <a th:href="@{/update/{id}(id=${job.id})}">Update</a>
+                <a th:href="@{/detail/{id}(id=${job.id})}">Details</a>
+                <a th:href="@{/delete/{id}(id=${job.id})}">Delete</a>
             </td>
         </tr>
     </div>
     </table>
 </div>
+
 <br>
 <div class="container" th:fragment="footnote">
     <footer>
