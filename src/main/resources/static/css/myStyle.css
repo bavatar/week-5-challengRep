@@ -11,3 +11,8 @@
        margin: 4px 2px;
        cursor: pointer;
   }
+
+/* mouse over link */
+a:hover {
+       color: black;
+}

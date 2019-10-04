@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -33,34 +34,44 @@ public class HomeController {
     }
 
     @PostMapping("/processjob")
-    public String processForm(@ModelAttribute Job job, @RequestParam(name = "date")
-            String date){
-
-        if (date.equals("")){
-            // No change in date from update
-            jobRepository.save(job);
-            return "redirect:/";
-        }
-        String pattern = "yyyy-MM-dd";
-        System.out.println("processForm: Input Date: " + date);
-        String[] output = date.split(",");
-//        System.out.println("processForm: length of Array: " + output.length);
-        try {
-            String formattedDate = output[output.length - 1];  //date.substring(1,date.length());
-            System.out.println(formattedDate);
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-            Date realDate = simpleDateFormat.parse(formattedDate);
-            job.setPostedDate(realDate);
-        }
-        catch (java.text.ParseException e){
-            e.printStackTrace();
-            //return "redirect:/";
-            //System.out.println("processForm: returning from update without any change in date");
-        }
-
+    public String processJob(@ModelAttribute Job job) {
+//        LocalDate tempDate = LocalDate.now();
+        Date tempDate = new Date();
+        //System.out.println("HomeController: tempDate: " + tempDate.toString());
+        job.setPostedDate(tempDate);
         jobRepository.save(job);
         return "redirect:/";
     }
+
+//    @PostMapping("/processjob")
+//    public String processForm(@ModelAttribute Job job, @RequestParam(name = "date")
+//            String date){
+//
+//        if (date.equals("")){
+//            // No change in date from update
+//            jobRepository.save(job);
+//            return "redirect:/";
+//        }
+//        String pattern = "yyyy-MM-dd";
+//        System.out.println("processForm: Input Date: " + date);
+//        String[] output = date.split(",");
+////        System.out.println("processForm: length of Array: " + output.length);
+//        try {
+//            String formattedDate = output[output.length - 1];  //date.substring(1,date.length());
+//            System.out.println(formattedDate);
+//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//            Date realDate = simpleDateFormat.parse(formattedDate);
+//            job.setPostedDate(realDate);
+//        }
+//        catch (java.text.ParseException e){
+//            e.printStackTrace();
+//            //return "redirect:/";
+//            //System.out.println("processForm: returning from update without any change in date");
+//        }
+//
+//        jobRepository.save(job);
+//        return "redirect:/";
+//    }
 
     @RequestMapping("/detail/{id}")
     public String showCourse(@PathVariable("id") long id, Model model){
