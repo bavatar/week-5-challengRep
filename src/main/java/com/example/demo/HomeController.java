@@ -35,8 +35,14 @@ public class HomeController {
     @PostMapping("/processjob")
     public String processForm(@ModelAttribute Job job, @RequestParam(name = "date")
             String date){
+
+        if (date.equals("")){
+            // No change in date from update
+            jobRepository.save(job);
+            return "redirect:/";
+        }
         String pattern = "yyyy-MM-dd";
-//        System.out.println("processForm: Input Date: " + date);
+        System.out.println("processForm: Input Date: " + date);
         String[] output = date.split(",");
 //        System.out.println("processForm: length of Array: " + output.length);
         try {
@@ -48,6 +54,8 @@ public class HomeController {
         }
         catch (java.text.ParseException e){
             e.printStackTrace();
+            //return "redirect:/";
+            //System.out.println("processForm: returning from update without any change in date");
         }
 
         jobRepository.save(job);
