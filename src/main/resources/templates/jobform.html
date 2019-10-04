@@ -5,13 +5,13 @@
     <title>Title</title>
     <div th:insert="base::header"></div>
 </head>
-<body style="background-color: darkgreen">
+<body style="background-color: seagreen">
 <!-- Navigation bar-->
 <div th:insert="base :: navbar"></div>
 
 <br>
 <div class="container" style="background-color: lightgoldenrodyellow">
-    <center><h3>Job Form</h3></center>
+    <center><h3>Update Job Form</h3></center>
 </div>
 
 <div class="container" style="background-color: azure">
@@ -24,9 +24,12 @@
     <input type="date" name="date" />
     <input type="text" placeholder="Author" th:field="*{author}" />
     <input type="text" placeholder="Phone" th:field="*{phone}" />
-
-    <input type="submit" onclick="confirmation()" value="Submit">
+    <input class="button" type="submit" value="Submit">
+<!--    <input class="button" type="submit" onclick="confirmation()" value="Submit">-->
+<!--    <input type="submit" onclick="confirmation()" value="Submit">-->
+<!--    <button class="button" type="submit">Search</button>-->
 </form>
+<br>
 </div>
 
 <br>

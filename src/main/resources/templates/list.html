@@ -5,23 +5,27 @@
     <title>Job List</title>
     <div th:insert="base::header"></div>
 </head>
-<body style="background-color: darkgreen">
+<body style="background-color: seagreen">
 <!-- Navigation bar-->
 <div th:insert="base :: navbar"></div>
 
-<br><br><br>
+<br>
 <div class="container" style="background-color: lightgoldenrodyellow">
     <center><h3>Job Selector Home Page</h3></center>
 </div>
 
+<!--<div th:each="job : ${jobs}">-->
+<!--    <p th:text="${job.title}">-->
+<!--</div>-->
+
 <div class="container" style="background-color: azure">
-    <br>
-    <form th:action="@{/processsearch}" method="post">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">Search</button>
-    </form>
-    <a href="/add">add</a>
-    <center><h2>All Jobs</h2></center>
+<!--    <br>-->
+<!--    <form th:action="@{/processsearch}" method="post">-->
+<!--        <input type="text" placeholder="Search.." name="search">-->
+<!--        <button type="submit">Search</button>-->
+<!--    </form>-->
+    <a href="/add">Add a Job</a>
+    <center><h3>All Jobs</h3></center>
     <table align="center" border="1">
         <thead>
         <tr >
@@ -34,7 +38,7 @@
         </tr>
         </thead>
         <div th:each="job : ${jobs}">
-            <tr>
+        <tr>
                 <td><p th:text="${job.title}"></p></td>
                 <td><p th:text="${job.description}"></p></td>
                 <td><p th:text="${#dates.format(job.postedDate, 'dd-MMM-yyyy')}"></p></td>
@@ -45,7 +49,7 @@
                     <a th:href="@{/detail/{id}(id=${job.id})}">Details</a>
                     <a th:href="@{/delete/{id}(id=${job.id})}">Delete</a>
                 </td>
-            </tr>
+        </tr>
         </div>
     </table>
     <br>

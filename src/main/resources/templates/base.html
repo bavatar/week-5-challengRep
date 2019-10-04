@@ -19,23 +19,46 @@
         <!--        @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');-->
 
         <!--My CSS-->
-        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="css/myStyle.css">
     </div>
 </head>
 <body>
 <div th:fragment="navbar" style="background-color: slategray">
-    <ul class="nav">
-        <li class="nav-item" id="firstItem">
-            <a class="nav-link active" style="color: whitesmoke" href="/">Home</a>
-        </li>
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="/aboutbootcamp">About the Bootcamp</a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="/aboutauthor">Blog Author</a>-->
-        <!--        </li>-->
-    </ul>
+    <div class="row">
+        <div class="col">
+            <ul class="nav">
+                <li class="nav-item" id="firstItem">
+                    <a class="nav-link active" style="color: whitesmoke" href="/">Home</a>
+                </li>
+            </ul>
+        </div><hr/>
+        <div class="col" align="center">
+            <form th:action="@{/processsearch}" method="post">
+                <input type="text" placeholder="Job Title" name="search">
+<!--                <input class="button" type="submit" onclick="confirmation()" value="Submit">-->
+                <button class="button" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
 </div>
+<!--    <ul class="nav">-->
+<!--        <li class="nav-item" id="firstItem">-->
+<!--            <a class="nav-link active" style="color: whitesmoke" href="/">Home</a>-->
+<!--        </li>-->
+<!--        &lt;!&ndash;        <li class="nav-item">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <a class="nav-link" href="/aboutbootcamp">About the Bootcamp</a>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </li>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <li class="nav-item">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <a class="nav-link" href="/aboutauthor">Blog Author</a>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </li>&ndash;&gt;-->
+<!--    </ul>-->
+
+
+
+<!--<form th:action="@{/processsearch}" method="post">-->
+<!--    <input type="text" placeholder="Search.." name="search">-->
+<!--    <button type="submit">Search</button>-->
+<!--</form>-->
 
 <div class="container" th:fragment="footnote">
     <footer>
